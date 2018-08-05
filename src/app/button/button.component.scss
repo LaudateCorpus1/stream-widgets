@@ -1,0 +1,37 @@
+.button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  border: 0;
+  padding: 9px 17px;
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  background: linear-gradient(to right, #4A3E9C , #208BE6);
+  cursor: pointer;
+  transition: all .2s;
+
+  /deep/ i {
+    margin-right: 9px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.outline {
+    background: white;
+    padding: 8px 16px;
+    color: #35BFCE;
+    border: 1px solid #35bfce;
+  }
+}

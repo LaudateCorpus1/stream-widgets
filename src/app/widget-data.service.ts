@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import * as data from './widget-data.json';
 import { WidgetData } from '../models/widget-data';
-import { rand } from '../utils/rand';
+import { generateId, rand } from '../utils/rand';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +14,14 @@ export class WidgetDataService {
   private subscribersImages: String[] = data['subscribers-images'];
   private creatorsNames: String[] = data['creators'];
 
-  private _widgets: WidgetData[] = [];
-  private _widgetsSubject = new BehaviorSubject<WidgetData[]>(this._widgets);
+  private _widgetsSubject = new BehaviorSubject<WidgetData[]>([]);
   public widgets = this._widgetsSubject.asObservable();
 
   constructor() {
   }
 
   public generateWidgets(count: Number): void {
+    const widgets = this._widgetsSubject.getValue();
     const newWidgets: WidgetData[] = [];
 
     for (let i = 0; i < count; i++) {
@@ -43,9 +43,19 @@ export class WidgetDataService {
         subscribersImages,
         creatorName,
         subscribersCount: rand(5, 10000),
+        inFavorites: Boolean(rand(0, 2)),
+        id: generateId(),
       };
       newWidgets.push(widget);
     }
-    this._widgetsSubject.next([...this._widgets, ...newWidgets]);
+    this._widgetsSubject.next([...widgets, ...newWidgets]);
+  }
+
+  toggleFavorite(id: String) {
+    const widgets = [...this._widgetsSubject.getValue()];
+    const index = widgets.findIndex(w => w.id === id);
+    const widget = widgets[index];
+    widgets[index] = { ...widget, inFavorites: !widget.inFavorites };
+    this._widgetsSubject.next(widgets);
   }
 }

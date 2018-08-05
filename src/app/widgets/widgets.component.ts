@@ -20,4 +20,7 @@ export class WidgetsComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleFavorite(id: String) {
+    this.widgetDataService.toggleFavorite(id);
+  }
 }

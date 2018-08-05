@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { WidgetComponent } from './widget/widget.component';
+import { ButtonComponent } from './button/button.component';
 
 registerLocaleData(localeRu, 'ru-RU');
 
@@ -14,7 +15,8 @@ registerLocaleData(localeRu, 'ru-RU');
   declarations: [
     AppComponent,
     WidgetsComponent,
-    WidgetComponent
+    WidgetComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
     <span class="widget-creator-link">{{ data.creatorName }}</span>
   </div>
 
-  <div class="widget-subscribers color-gray font-12 d-flex align-items-center">
+  <div class="widget-subscribers color-gray font-12">
     <span>Отслеживают: </span>
     <div class="widget-subscriber"
          *ngFor="let img of data.subscribersImages"
@@ -21,4 +21,19 @@
     </div>
     <span>... ({{ data.subscribersCount | number }})</span>
   </div>
+
+  <app-button (click)="toggleFavorite.next(data.id)"
+              [outline]="data.inFavorites">
+
+    <ng-template [ngIf]="!data.inFavorites">
+      <i class="fa fa-star"></i>
+      Добавить в избранное
+    </ng-template>
+
+    <ng-template [ngIf]="data.inFavorites">
+      <i class="fa fa-check-circle"></i>
+      В избранном
+    </ng-template>
+
+  </app-button>
 </article>

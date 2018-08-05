@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WidgetData } from '../../models/widget-data';
 
 @Component({
@@ -8,6 +8,7 @@ import { WidgetData } from '../../models/widget-data';
 })
 export class WidgetComponent implements OnInit {
   @Input() data: WidgetData;
+  @Output() toggleFavorite = new EventEmitter<String>();
 
   constructor() {
   }

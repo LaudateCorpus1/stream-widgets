@@ -1,6 +1,7 @@
 <section class="widgets">
   <app-widget *ngFor="let widget of $widgets | async"
               [data]="widget"
+              (toggleFavorite)="toggleFavorite($event)"
               class="widgets-item">
   </app-widget>
 </section>
