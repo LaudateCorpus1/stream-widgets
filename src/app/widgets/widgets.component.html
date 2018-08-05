@@ -1,4 +1,11 @@
-<section class="widgets">
+<div class="addWidget background-dark">
+  <app-button (click)="addWidget()">
+    <i class="fa fa-plus-circle"></i>
+    Добавить виджет
+  </app-button>
+</div>
+
+<section class="widgets background-dark">
   <app-widget *ngFor="let widget of $widgets | async"
               [data]="widget"
               (toggleFavorite)="toggleFavorite($event)"

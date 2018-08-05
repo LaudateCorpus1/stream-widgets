@@ -13,13 +13,16 @@
     margin-top: 16px;
     transition: color .2s;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
       color: #6FA9D7;
     }
   }
 
-  &-images {
+  &-channels {
     display: flex;
     overflow: hidden;
     position: relative;
@@ -36,6 +39,8 @@
       &:last-child {
         margin-right: 0;
 
+        // На разрешении около 320 немного изменил виджет
+        // так как с шириной как на скриншоте немного больше
         @media only screen and (max-width: 400px) {
           display: none;
         }
@@ -70,7 +75,8 @@
       color: #ABABAB;
     }
   }
-  &-subscriber {
+
+  &-subscriberImg {
     height: 20px;
     width: 20px;
     margin-left: 6px;
@@ -79,6 +85,21 @@
     background-size: cover;
     border-radius: 50%;
     flex: none;
+
+    // На очень маленьком разрешении показываются только три изображения подписчика
+    // чтобы все помещалось в одну строку
+    @media only screen and (max-width: 400px) {
+      display: none;
+      &:nth-child(-n + 3){
+        display:block;
+      }
+    }
+  }
+
+  &-add {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
   }
 }
 

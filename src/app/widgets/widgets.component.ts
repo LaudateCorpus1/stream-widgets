@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./widgets.component.scss']
 })
 export class WidgetsComponent implements OnInit {
-  public showImage = true;
+  public showImage = false;
   public $widgets: Observable<WidgetData[]>;
 
   constructor(private widgetDataService: WidgetDataService) {
@@ -22,5 +22,9 @@ export class WidgetsComponent implements OnInit {
 
   toggleFavorite(id: String) {
     this.widgetDataService.toggleFavorite(id);
+  }
+
+  addWidget() {
+    this.widgetDataService.generateWidgets(1);
   }
 }

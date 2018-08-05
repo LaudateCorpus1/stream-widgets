@@ -1,5 +1,5 @@
 <article class="widget">
-  <div class="widget-images">
+  <div class="widget-channels">
     <div *ngFor="let img of data.channelsImages"
          [style.backgroundImage]="'url(' + img.url + ')'"
          [style.borderRadius]="img.rounded ? '50%' : 'unset'">
@@ -14,8 +14,8 @@
   </div>
 
   <div class="widget-subscribers color-gray font-12">
-    <span>Отслеживают: </span>
-    <div class="widget-subscriber"
+    Отслеживают:
+    <div class="widget-subscriberImg"
          *ngFor="let img of data.subscribersImages"
          [style.backgroundImage]="'url(' + img + ')'">
     </div>
@@ -23,7 +23,8 @@
   </div>
 
   <app-button (click)="toggleFavorite.next(data.id)"
-              [outline]="data.inFavorites">
+              [outline]="data.inFavorites"
+              class="widget-add">
 
     <ng-template [ngIf]="!data.inFavorites">
       <i class="fa fa-star"></i>
