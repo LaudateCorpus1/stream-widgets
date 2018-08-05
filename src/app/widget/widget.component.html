@@ -1,9 +1,15 @@
 <article class="widget">
   <div class="widget-channels">
-    <div *ngFor="let img of data.channelsImages"
+    <div *ngFor="let img of data.channelsImages.slice(0, 3)"
+         class="widget-channels-img"
          [style.backgroundImage]="'url(' + img.url + ')'"
          [style.borderRadius]="img.rounded ? '50%' : 'unset'">
     </div>
+
+    <span class="widget-channels-count"
+          *ngIf="data.channelsCount > 3">
+      +{{ data.channelsCount - 3 }}
+    </span>
   </div>
 
   <h3 class="widget-title">{{ data.title }}</h3>

@@ -4,7 +4,6 @@
   grid-gap: 30px;
   justify-content: space-between;
   padding: 30px 60px;
-  margin: 0 -15px;
   box-sizing: border-box;
 
   &-item {
@@ -16,6 +15,7 @@
 
   @media only screen and (max-width: 600px) {
     padding: 30px 15px;
+    grid-gap: 15px;
     grid-template-columns: auto;
     justify-content: center;
   }
@@ -24,7 +24,6 @@
 .addWidget {
   padding: 30px 0 5px;
   display: flex;
-  margin: 0 -15px;
   justify-content: center;
 }
 

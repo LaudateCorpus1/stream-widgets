@@ -44,6 +44,7 @@ export class WidgetDataService {
         creatorName,
         subscribersCount: rand(5, 10000),
         inFavorites: Boolean(rand(0, 2)),
+        channelsCount: rand(5, 100),
         id: generateId(),
       };
       newWidgets.push(widget);

@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./widgets.component.scss']
 })
 export class WidgetsComponent implements OnInit {
-  public showImage = false;
   public $widgets: Observable<WidgetData[]>;
 
   constructor(private widgetDataService: WidgetDataService) {
