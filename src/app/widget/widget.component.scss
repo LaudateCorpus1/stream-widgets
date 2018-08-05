@@ -1,0 +1,28 @@
+.widget {
+  padding: 25px;
+  background: white;
+  width: 100%;
+  flex: none;
+  box-sizing: border-box;
+
+  &-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 16px;
+  }
+
+  &-images {
+    display: flex;
+
+    img {
+      height: 96px;
+      width: 96px;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

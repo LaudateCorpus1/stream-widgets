@@ -1,0 +1,23 @@
+.widgets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 60px;
+  margin: 0 -15px;
+  box-sizing: border-box;
+  background: #313234;
+
+  &-item {
+    margin: 0 15px 10px;
+    width: 354px;
+    height: 280px;
+    min-width: 290px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 15px;
+    justify-content: center;
+  }
+}

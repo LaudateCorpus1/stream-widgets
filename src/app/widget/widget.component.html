@@ -1,0 +1,9 @@
+<article class="widget">
+  <div class="widget-images">
+    <img *ngFor="let img of data.images"
+         [src]="img.url"
+         [style.borderRadius]="img.rounded ? '50%' : 'unset'"/>
+  </div>
+
+  <h3 class="widget-title">{{ data.name }}</h3>
+</article>
