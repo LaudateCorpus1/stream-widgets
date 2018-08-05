@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WidgetData } from '../../models/widget-data';
+import { WidgetDataService } from '../widget-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-widgets',
@@ -8,34 +10,11 @@ import { WidgetData } from '../../models/widget-data';
 })
 export class WidgetsComponent implements OnInit {
   public showImage = true;
-  public widgets: WidgetData[] = [
-    {
-      name: 'Интересные каналы про Dota 2',
-      images: [
-        { url: '', rounded: true },
-        { url: '', rounded: false },
-        { url: '', rounded: false }
-        ],
-    },
-    {
-      name: 'Девушки-стримершы',
-      images: [
-        { url: '', rounded: false },
-        { url: '', rounded: false },
-        { url: '', rounded: false }
-      ],
-    },
-    {
-      name: 'Все что связано с Fortnite',
-      images: [
-        { url: '', rounded: false },
-        { url: '', rounded: false },
-        { url: '', rounded: false }
-      ],
-    },
-  ];
+  public $widgets: Observable<WidgetData[]>;
 
-  constructor() {
+  constructor(private widgetDataService: WidgetDataService) {
+    this.$widgets = this.widgetDataService.widgets;
+    this.widgetDataService.generateWidgets(3);
   }
 
   ngOnInit() {

@@ -1,9 +1,24 @@
 <article class="widget">
   <div class="widget-images">
-    <img *ngFor="let img of data.images"
-         [src]="img.url"
-         [style.borderRadius]="img.rounded ? '50%' : 'unset'"/>
+    <div *ngFor="let img of data.channelsImages"
+         [style.backgroundImage]="'url(' + img.url + ')'"
+         [style.borderRadius]="img.rounded ? '50%' : 'unset'">
+    </div>
   </div>
 
-  <h3 class="widget-title">{{ data.name }}</h3>
+  <h3 class="widget-title">{{ data.title }}</h3>
+
+  <div class="widget-creator d-flex align-items-center font-12">
+    <span class="color-gray">Создатель: </span>
+    <span class="widget-creator-link">{{ data.creatorName }}</span>
+  </div>
+
+  <div class="widget-subscribers color-gray font-12 d-flex align-items-center">
+    <span>Отслеживают: </span>
+    <div class="widget-subscriber"
+         *ngFor="let img of data.subscribersImages"
+         [style.backgroundImage]="'url(' + img + ')'">
+    </div>
+    <span>... ({{ data.subscribersCount | number }})</span>
+  </div>
 </article>

@@ -1,5 +1,5 @@
 <section class="widgets">
-  <app-widget *ngFor="let widget of widgets"
+  <app-widget *ngFor="let widget of $widgets | async"
               [data]="widget"
               class="widgets-item">
   </app-widget>

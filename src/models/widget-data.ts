@@ -1,4 +1,12 @@
 export class WidgetData {
-  name: String;
-  images: { url: String, rounded: Boolean }[];
+  title: String;
+  channelsImages: WidgetDataImage[];
+  creatorName: String;
+  subscribersImages: String[];
+  subscribersCount: Number;
+}
+
+export class WidgetDataImage {
+  url: String;
+  rounded: Boolean;
 }
