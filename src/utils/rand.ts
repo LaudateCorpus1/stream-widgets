@@ -1,4 +1,4 @@
-export function rand(from: number, to: number): Number {
+export function rand(from: number, to: number): number {
   return Math.floor(Math.random() * (to - from)) + from;
 }
 
