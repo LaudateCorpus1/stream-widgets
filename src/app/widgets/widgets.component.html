@@ -6,8 +6,9 @@
 </div>
 
 <section class="widgets background-dark">
-  <app-widget *ngFor="let widget of $widgets | async"
+  <app-widget *ngFor="let widget of widgetDataService.widgets | async"
               [data]="widget"
+              [inFavorites]="favorites.includes(widget.id)"
               (toggleFavorite)="toggleFavorite($event)"
               class="widgets-item">
   </app-widget>

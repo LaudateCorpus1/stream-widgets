@@ -29,15 +29,15 @@
   </div>
 
   <app-button (click)="toggleFavorite.next(data.id)"
-              [outline]="data.inFavorites"
+              [outline]="inFavorites"
               class="widget-add">
 
-    <ng-template [ngIf]="!data.inFavorites">
+    <ng-template [ngIf]="!inFavorites">
       <i class="fa fa-star"></i>
       Добавить в избранное
     </ng-template>
 
-    <ng-template [ngIf]="data.inFavorites">
+    <ng-template [ngIf]="inFavorites">
       <i class="fa fa-check-circle"></i>
       В избранном
     </ng-template>

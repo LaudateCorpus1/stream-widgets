@@ -6,7 +6,6 @@ export class WidgetData {
   creatorName: String;
   subscribersImages: String[];
   subscribersCount: number;
-  inFavorites: Boolean;
 }
 
 export class WidgetDataImage {

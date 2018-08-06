@@ -16,6 +16,7 @@ export class WidgetDataService {
 
   private _widgetsSubject = new BehaviorSubject<WidgetData[]>([]);
   public widgets = this._widgetsSubject.asObservable();
+  public favorites: String[] = [];
 
   constructor() {
   }
@@ -43,20 +44,24 @@ export class WidgetDataService {
         subscribersImages,
         creatorName,
         subscribersCount: rand(5, 10000),
-        inFavorites: Boolean(rand(0, 2)),
         channelsCount: rand(5, 100),
         id: generateId(),
       };
+      const inFavorites = Boolean(rand(0, 2));
+      if (inFavorites) {
+        this.favorites.push(widget.id);
+      }
       newWidgets.push(widget);
     }
     this._widgetsSubject.next([...widgets, ...newWidgets]);
   }
 
-  toggleFavorite(id: String) {
-    const widgets = [...this._widgetsSubject.getValue()];
-    const index = widgets.findIndex(w => w.id === id);
-    const widget = widgets[index];
-    widgets[index] = { ...widget, inFavorites: !widget.inFavorites };
-    this._widgetsSubject.next(widgets);
+  toggleFavorite(widgetId: String) {
+    const index = this.favorites.findIndex(id => id === widgetId);
+    if (index >= 0) {
+      this.favorites.splice(index, 1);
+    } else {
+      this.favorites.push(widgetId);
+    }
   }
 }

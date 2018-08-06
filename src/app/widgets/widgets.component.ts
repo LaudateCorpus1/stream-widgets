@@ -9,21 +9,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./widgets.component.scss']
 })
 export class WidgetsComponent implements OnInit {
-  public $widgets: Observable<WidgetData[]>;
 
-  constructor(private widgetDataService: WidgetDataService) {
-    this.$widgets = this.widgetDataService.widgets;
+  constructor(public widgetDataService: WidgetDataService) {
     this.widgetDataService.generateWidgets(3);
   }
 
   ngOnInit() {
   }
 
-  toggleFavorite(id: String) {
-    this.widgetDataService.toggleFavorite(id);
+  toggleFavorite(widgetId: String) {
+    this.widgetDataService.toggleFavorite(widgetId);
   }
 
   addWidget() {
     this.widgetDataService.generateWidgets(1);
+  }
+
+  get favorites() {
+    return this.widgetDataService.favorites;
   }
 }

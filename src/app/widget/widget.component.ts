@@ -8,6 +8,7 @@ import { WidgetData } from '../../models/widget-data';
 })
 export class WidgetComponent implements OnInit {
   @Input() data: WidgetData;
+  @Input() inFavorites: Boolean;
   @Output() toggleFavorite = new EventEmitter<String>();
 
   constructor() {
